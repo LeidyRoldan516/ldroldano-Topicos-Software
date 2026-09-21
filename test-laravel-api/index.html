@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laravel - API test example</title>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <h1>Productos obtenidos desde la API de Laravel</h1>
+
+    <div id="infoProducts"></div>
+
+    <script type="text/javascript">
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "http://127.0.0.1:8000/api/v3/products",
+
+            success: function (data) {
+                $("#infoProducts").html(JSON.stringify(data));
+            },
+
+            error: function (error) {
+                $("#infoProducts").html(
+                    "No fue posible consultar la API: " +
+                    JSON.stringify(error)
+                );
+            }
+        });
+    </script>
+
+</body>
+</html>
