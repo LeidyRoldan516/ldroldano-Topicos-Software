@@ -14,7 +14,7 @@ class ProductCollection extends ResourceCollection
             'data' => $this->collection,
             'additionalData' => [
                 'storeName' => 'Mega Store',
-                'storeProductsLink' => 'http://127.0.0.1:8000/products',
+                'storeProductsLink' => route('product.index'),
             ],
         ];
     }
